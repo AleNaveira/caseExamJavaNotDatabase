@@ -6,20 +6,19 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 @Entity
-public class ProductDTO {
+public class ProductDTO implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @NotNull(message="El nombre del producto no debe estar vacío")
-    @NotBlank
+    @NotBlank(message ="El nombre del producto no debe estar vacío")
     private String name;
     @NotNull(message="El producto debe contener una descripción")
-    @NotBlank
+    @NotBlank(message="El producto debe contener una descripción")
     private String description;
 
 
-    @NotNull(message="El producto debe tener un precio")
     private double price;
 
     public ProductDTO() {
@@ -68,6 +67,16 @@ public class ProductDTO {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                '}';
     }
 }
 

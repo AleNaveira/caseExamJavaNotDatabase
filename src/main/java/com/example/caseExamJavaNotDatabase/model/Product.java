@@ -10,7 +10,7 @@ public class Product {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
 
@@ -22,7 +22,7 @@ public class Product {
     private String description;
 
 
-    @NotNull(message="El producto debe tener un precio")
+
 
     private double price;
 

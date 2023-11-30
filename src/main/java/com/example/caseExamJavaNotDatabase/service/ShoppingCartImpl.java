@@ -21,6 +21,9 @@ public class ShoppingCartImpl implements ShoppingCart{
     @Override
     public void addProduct(ProductDTO product) {
 
+
+
+
         productList.add(product);
 
     }

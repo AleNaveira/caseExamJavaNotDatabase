@@ -21,6 +21,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/carrito")
@@ -52,7 +53,7 @@ public class ShoppingCartController {
 
 
     @PostMapping("/crear-producto")
-    public ResponseEntity<String> addToCart( @RequestBody @Valid ProductDTO product) {
+    public ResponseEntity<String> addToCart(@Valid @RequestBody  ProductDTO product) {
 
         shoppingCartImpl.addProduct(product);
 
@@ -102,7 +103,7 @@ public class ShoppingCartController {
         }else if("DISCOUNT30".equals(productList)){
             couponDiscount.applyDiscount30(productList);
         }else{
-            return new ResponseEntity<>("Tipo de descuento no válido", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Tipo de descuento no válido", HttpStatus.OK);
         }
 
         return new ResponseEntity<>("Descuento aplicado al carrito", HttpStatus.OK);
