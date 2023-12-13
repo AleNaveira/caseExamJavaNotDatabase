@@ -16,9 +16,11 @@ public class Product {
 
     @NotNull(message="El nombre del producto no debe estar vacío")
     @NotBlank
+    @Column
     private String name;
     @NotNull(message="El producto debe contener una descripción")
     @NotBlank
+    @Column
     private String description;
 
 
